@@ -21,6 +21,13 @@
                 const newElem = document.createElement("p");
                 newElem.innerText = input.value;
                 list.appendChild(newElem);
+
+                // Another way to do the same thing with a lambda function
+                // list.appendChild((() => {
+                //     const newElem = document.createElement("p");
+                //     newElem.innerText = input.value;
+                //     return newElem;
+                // })());
             }
         </script>
     </body>
