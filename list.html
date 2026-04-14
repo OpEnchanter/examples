@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .list {
+                display: flex;
+                flex-direction: column-reverse;
+            }
+        </style>
+    </head>
+    <body>
+        <input id="input"/>
+        <button onclick="formSubmit()">Submit</button>
+        <div class="list"></div>
+        <script>
+            const list = document.querySelector(".list");
+            const input = document.getElementById("input");
+
+            function formSubmit() {
+                console.log("Creating new element!");
+                const newElem = document.createElement("p");
+                newElem.innerText = input.value;
+                list.appendChild(newElem);
+            }
+        </script>
+    </body>
+</html>
