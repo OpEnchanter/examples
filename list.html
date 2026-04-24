@@ -2,9 +2,62 @@
 <html>
     <head>
         <style>
+            body {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
             .list {
                 display: flex;
                 flex-direction: column-reverse;
+                padding: 0px;
+                gap: 6px;
+
+                margin-top: 12px;
+
+                p {
+                    display: flex;
+                    border: 1px solid black;
+                    border-radius: 1rem;
+                    padding: 0.5rem;
+                    width: fit-content;
+                    min-width: 140px;
+                    margin: 0px;
+
+                    animation: spawn 500ms;
+                    transition-duration: 150;
+                }
+            }
+
+            input {
+                display: flex;
+                border: 1px solid black;
+                border-radius: 0.75rem;
+                padding: 0.5rem;
+                width: fit-content;
+                min-width: 140px;
+                margin: 0px;
+                height: fit-content;
+            }
+
+            button {
+                display: flex;
+                border: 1px solid black;
+                border-radius: 0.75rem;
+                padding: 0.5rem;
+                width: fit-content;
+                margin: 0px;
+                height: fit-content;
+            }
+
+            @keyframes spawn {
+                0% {
+                    transform: translate(0, -50px);
+                }
+                100% {
+                    transform: translate(0, 0);
+                }
             }
         </style>
     </head>
@@ -16,10 +69,18 @@
             const list = document.querySelector(".list");
             const input = document.getElementById("input");
 
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") {
+                    formSubmit();
+                }
+            });
+
             function formSubmit() {
+                //rif (input.value === "") return;
                 console.log("Creating new element!");
                 const newElem = document.createElement("p");
                 newElem.innerText = input.value;
+                input.value = "";
                 list.appendChild(newElem);
 
                 // Another way to do the same thing with a lambda function
@@ -29,6 +90,8 @@
                 //     return newElem;
                 // })());
             }
+
+
         </script>
     </body>
 </html>
